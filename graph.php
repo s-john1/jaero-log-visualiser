@@ -44,6 +44,7 @@ foreach($timestamps as $time) {
 	}
 }
 
+ksort($graphData); // Sort by timestamps in ascending order
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +58,7 @@ foreach($timestamps as $time) {
 	</head>
 	
 	<body>
-		<canvas id="chart" width="400" height="400"></canvas>
+		<canvas id="chart"></canvas>
 		
 		<script>
 			var times = <?= json_encode(array_keys($graphData)) ?>;
@@ -66,7 +67,6 @@ foreach($timestamps as $time) {
 			// Parse dates
 			var labels = [];
 			times.forEach(time => labels.push(new Date(time)));
-		
 		
 			var ctx = document.getElementById('chart');
 			
