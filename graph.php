@@ -31,7 +31,7 @@ if ($file != false) {
 	die("Error opening file");
 }
 
-// Loop through timestampts and group them by hour
+// Loop through timestamps and group them by hour
 foreach($timestamps as $time) {
 	$dt = DateTime::createFromFormat('H:i:s d-m-y', $time);
 	$dt->setTime($dt->format('H'), 0,0); // Remove minutes and seconds
