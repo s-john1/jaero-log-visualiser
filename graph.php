@@ -76,13 +76,20 @@ foreach($timestamps as $time) {
 				labels: labels,
 				
 				datasets: [{
+					label: 'Messages Per Minute',
+					backgroundColor: 'green',
+					hoverBackgroundColor: 'black',
 					data: data
 				}]
 			},
 			options: {
 				scales: {
 					xAxes: [{
-						type: 'time'
+						type: 'time',
+						scaleLabel: {
+							display: true,
+							labelString: 'Time'
+						}
 					}]
 				}
 			}
