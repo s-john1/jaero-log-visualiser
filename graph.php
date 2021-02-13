@@ -31,10 +31,10 @@ if ($file != false) {
 	die("Error opening file");
 }
 
-// Loop through timestamps and group them by hour
+// Loop through timestamps and group them by minute
 foreach($timestamps as $time) {
 	$dt = DateTime::createFromFormat('H:i:s d-m-y', $time);
-	$dt->setTime($dt->format('H'), 0,0); // Remove minutes and seconds
+	$dt->setTime($dt->format('H'), $dt->format('i'), 0); // Remove seconds from date
 	$date = $dt->format(DateTime::ATOM); // Format date so JavaScript can parse it
 	
 	if (isset($graphData[$date])) {
@@ -71,7 +71,7 @@ foreach($timestamps as $time) {
 			var ctx = document.getElementById('chart');
 			
 			var line = new Chart(ctx, {
-			type: 'line',
+			type: 'bar',
 			data: {
 				labels: labels,
 				
