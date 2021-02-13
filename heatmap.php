@@ -1,6 +1,6 @@
 <?php
 
-const LOG_DIR = 'logs/';
+require 'config.php';
 
 $locations = [];
 
